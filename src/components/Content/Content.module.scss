@@ -1,0 +1,148 @@
+@import "../../variables";
+
+.content {
+  width: 956px;
+  min-height: 100%;
+  padding: 30px 50px;
+  position: relative;
+  overflow-y: auto;
+  h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 0 10px 0;
+  }
+  .splashScreen {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 35px;
+    font-weight: 600;
+    text-align: center;
+  }
+  .breadCrumbs {
+    display: flex;
+    align-items: center;
+    column-gap: 15px;
+    margin: 0 0 15px 0;
+    h4 {
+      cursor: pointer;
+      font-size: 18px;
+      font-weight: 600;
+      color: $cold-purple;
+    }
+    p {
+      cursor: pointer;
+    }
+  }
+  .infoRequest {
+    display: flex;
+    column-gap: 20px;
+    margin: 0 0 15px 0;
+    .items {
+      display: flex;
+      flex-direction: column;
+      row-gap: 10px;
+      .itemInfo {
+        display: flex;
+        .btnTypeRequest {
+          display: inline-block;
+          color: #fff;
+          height: 25px;
+          line-height: 25px;
+          padding: 0 8px;
+          border-radius: 5px;
+          width: 50px;
+          text-align: center;
+          text-transform: uppercase;
+          &.get {
+            background-color: $GET;
+          }
+          &.post {
+            background-color: $POST;
+          }
+          &.put {
+            background-color: $PUT;
+          }
+          &.delete {
+            background-color: $DELETE;
+          }
+        }
+        .authorize {
+          background-color: #f1f1f1;
+          border: 1px solid #d8d8d8;
+          border-radius: 5px;
+          padding: 5px 10px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          column-gap: 5px;
+          margin: 0 0 0 15px;
+        }
+      }
+    }
+    .apiPath {
+      color: #1FD9CE;
+    }
+  }
+  .descriptionRequest {
+    margin: 0 0 15px 0;
+    font-size: 16px;
+  }
+  .params {
+    margin: 0 0 20px 0;
+  }
+  .result {
+    margin: 0 0 20px 0;
+    max-width: 650px;
+    .resultDescription {
+      font-size: 16px;
+      line-height: 20px;
+      margin: 0 0 20px 0;
+    }
+    .resultTable {
+      width: 650px;
+      min-height: 200px;
+      border-radius: 30px;
+      border: 1px solid #F5F5F5;
+      display: grid;
+      grid-template-rows: 50px 1fr;
+      .resultTableTop {
+        display: grid;
+        background-color: #F2F9FF;
+        grid-template-columns: 150px 150px 1fr;
+        border-top-left-radius: 30px;
+        border-top-right-radius: 30px;
+        padding: 15px 20px;
+        & > * {
+          display: flex;
+          align-items: center;
+          font-size: 16px;
+          font-weight: 600;
+        }
+      }
+      .resultTableBody {
+        padding: 15px 20px;
+        display: flex;
+        flex-direction: column;
+        row-gap: 15px;
+      }
+    }
+  }
+  .errors {
+    margin: 0 0 20px 0;
+    .items {
+      display: flex;
+      flex-direction: column;
+      row-gap: 10px;
+    }
+  }
+  .example {
+    .exampleTable {
+      width: 650px;
+      min-height: 200px;
+      border-radius: 30px;
+      border: 1px solid #F5F5F5;
+    }
+  }
+}

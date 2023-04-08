@@ -1,0 +1,61 @@
+export class styles {
+}
+
+.methodContent {
+  display: flex;
+  &:not(:last-child) {
+    border-bottom: 1px solid #F1F1F1;
+    padding: 0 0 15px 0;
+    margin: 0 0 15px 0;
+  }
+  .methodInfo {
+    display: flex;
+    flex-direction: column;
+    row-gap: 6px;
+    h4 {
+      font-size: 16px;
+    }
+    span {
+      opacity: 0.5;
+    }
+    .type {
+      display: block;
+      max-width: 70px;
+      padding: 5px;
+      border-radius: 5px;
+      border: 1px solid #D8D8D8;
+    }
+  }
+  .methodBody {
+    margin: 0 0 0 20px;
+    .description {
+      font-size: 16px;
+      margin: 0 0 10px 0;
+    }
+    .titleParamType {
+      font-size: 16px;
+      font-weight: 600;
+      margin: 0 0 10px 0;
+    }
+    .paramTypeItems {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 40px;
+      border-radius: 5px;
+      border: 1px solid #F5F5F5;
+    }
+    .paramTypeItem {
+      opacity: 0.5;
+      font-weight: 600;
+      line-height: 40px;
+      flex: 1 1 33.333%;
+      display: flex;
+      justify-content: center;
+      padding: 0 30px;
+      &.active {
+        opacity: 1;
+      }
+    }
+  }
+}

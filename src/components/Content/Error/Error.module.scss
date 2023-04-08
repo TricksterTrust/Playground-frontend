@@ -1,0 +1,13 @@
+@import "../../../variables";
+
+.item {
+  display: flex;
+  max-width: 500px;
+  span {
+    font-weight: 600;
+    color: $DELETE;
+  }
+  p {
+    margin: 0 0 0 20px;
+  }
+}
