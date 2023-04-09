@@ -1,5 +1,5 @@
 // <Imports>============================================================================================================
-import React, {useContext} from "react";
+import React, {useContext, useState} from "react";
 
 import {AppContext} from "../../context";
 import CategoryItem from "../CategoryItem/CategoryItem";
@@ -12,19 +12,21 @@ const Sidebar = () => {
 	// получаю все категории и его методы
 	const {methods} = useContext(AppContext)
 	
+	const [search, setSearch] = useState('')
+	
 	return (
 		<div className={styles.sidebar}>
-			<form action="" className={styles.search}>
-				<input type="text" placeholder="Поиск"/>
+			<div action="" className={styles.search}>
+				<input value={search} onChange={(e) => setSearch(e.target.value.toLowerCase())} type="text" placeholder="Поиск"/>
 				<button><Search/></button>
-			</form>
+			</div>
 			<ul className={styles.titlesList}>
 				<li>Методы</li>
 			</ul>
 			<div className={styles.category}>
 				{
 					Object.keys(methods).map((item, index) => (
-						<CategoryItem key={index} item={item}/>
+						<CategoryItem key={index} item={item} search={search}/>
 					))
 				}
 			</div>

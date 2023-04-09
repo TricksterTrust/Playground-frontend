@@ -1,5 +1,5 @@
 // <Imports>============================================================================================================
-import React, {useContext, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import classNames from 'classnames/bind';
 
 import {AppContext} from "../../context";
@@ -10,7 +10,7 @@ import styles from "./CategoryItem.module.scss"
 
 let cx = classNames.bind(styles);
 
-const CategoryItem = ({item}) => {
+const CategoryItem = ({item, search}) => {
 	const {methods, capitalizeFirstLetter} = useContext(AppContext)
 	const [opened, setOpened] = useState(false)
 	
@@ -21,7 +21,19 @@ const CategoryItem = ({item}) => {
 		setOpened((!opened))
 	}
 	
+	// Возвращает true если найдена подкатегория в категории включающая в своё имя search.
+	// Если search = '', то 0, чтобы не открывать все категории при загрузке страницы
+	const filteredParentItem = () => {
+		return methods[item].some(item => search !== '' ? item.toLowerCase().includes(search) : 0)
+	}
+	
+	useEffect(() => {
+		setOpened(filteredParentItem())
+	}, [search])
+	
+	console.log(filteredParentItem(), methods[item])
 	return (
+		(search === '' ? true : filteredParentItem())  &&
 		<div className={styles.categoryItem}>
 			<h3
 				className={cx({
@@ -32,7 +44,7 @@ const CategoryItem = ({item}) => {
 			{opened &&
 				<div className={styles.categoryItemBody}>
 					{methods[item].map((item, index) => (
-						<SubCategoryItem key={index} item={item} parentItem={parentItem}/>
+						item.includes(search) && <SubCategoryItem key={index} item={item} parentItem={parentItem}/>
 					))}
 				</div>
 			}
