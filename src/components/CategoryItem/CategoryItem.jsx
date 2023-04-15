@@ -30,8 +30,7 @@ const CategoryItem = ({item, search}) => {
 	useEffect(() => {
 		setOpened(filteredParentItem())
 	}, [search])
-	
-	console.log(filteredParentItem(), methods[item])
+
 	return (
 		(search === '' ? true : filteredParentItem())  &&
 		<div className={styles.categoryItem}>

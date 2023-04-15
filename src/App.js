@@ -7,6 +7,7 @@ import {AppContext} from "./context";
 import Header from "./components/Header/Header";
 import Sidebar from "./components/Sidebar/Sidebar";
 import Content from "./components/Content/Content";
+import Toast from "./components/Toast/Toast";
 // =====================================================================================================================
 
 function App() {
@@ -22,7 +23,7 @@ function App() {
 	useEffect(() => {
 		(async function() {
 			try {
-				await axios.get('https://api.trickstertrust.ru/dev/methods/')
+				await axios.get('https://api.trickstertrust.ru/v1/dev/methods/')
 					.then(resp => {
 						setMethods(resp.data)
 					})
@@ -37,7 +38,7 @@ function App() {
 		activeMethod &&
 		(async function() {
 			try {
-				await axios.get(`https://api.trickstertrust.ru/dev/methods/${activeMethod}/`)
+				await axios.get(`https://api.trickstertrust.ru/v1/dev/methods/${activeMethod}/`)
 					.then(resp => {
 						setContentMethod(resp.data)
 					})
